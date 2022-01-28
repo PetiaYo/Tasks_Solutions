@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "4f0d4894-9e74-4976-a416-75fc32651e7e",
+		"name": "GraphQL Tasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task 1 - AllSpiciesFromFirstMovie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query AllSpiciesFromFirstMovie {\r\n  allFilms(first: 1) {\r\n    films {\r\n      title\r\n      speciesConnection {\r\n        species {\r\n          name\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+					"protocol": "https",
+					"host": [
+						"swapi-graphql",
+						"netlify",
+						"app"
+					],
+					"path": [
+						".netlify",
+						"functions",
+						"index"
+					]
+				},
+				"description": "Retrieve and store all species that have participated in the first movie of \r\nStar Wars “A New Hope\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Task 2 PersonDroid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query PersonDroid {\r\n        species (speciesID:2) {\r\n          personConnection {\r\n            people {\r\n              name\r\n              birthYear\r\n              homeworld {\r\n                name\r\n              }\r\n              eyeColor\r\n            }\r\n          }\r\n        }\r\n      }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+					"protocol": "https",
+					"host": [
+						"swapi-graphql",
+						"netlify",
+						"app"
+					],
+					"path": [
+						".netlify",
+						"functions",
+						"index"
+					]
+				},
+				"description": "Obtain “name”, “birthYear”, “homeWorld”, “eyeColor” for the person, which \r\nis “Droid”."
+			},
+			"response": []
+		},
+		{
+			"name": "Task 3 TotalCountOfAllPeopleParticipatedInTheMovie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query TotalCountOfAllPeopleParticipatedInTheMovie \r\n{\r\n  allFilms (first: 1) \r\n{\r\n    films \r\n    {\r\n      characterConnection \r\n      { \r\n        totalCount\r\n      \tcharacters \r\n        {\r\n        \tid\r\n      \t\tname\r\n      \t\tgender\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+					"protocol": "https",
+					"host": [
+						"swapi-graphql",
+						"netlify",
+						"app"
+					],
+					"path": [
+						".netlify",
+						"functions",
+						"index"
+					]
+				},
+				"description": "Obtain the totalCount of all people that have participated in the movie and \r\nthe unique “id”, “name” and “gender” for each of them"
+			},
+			"response": []
+		},
+		{
+			"name": "Task 4 PersonWithId4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query PersonWithId4 {\r\n  person(personID: 4) {\r\n    name\r\n    birthYear\r\n    homeworld {\r\n      name\r\n    }\r\n    eyeColor\r\n    starshipConnection {\r\n      starships {\r\n        name\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+					"protocol": "https",
+					"host": [
+						"swapi-graphql",
+						"netlify",
+						"app"
+					],
+					"path": [
+						".netlify",
+						"functions",
+						"index"
+					]
+				},
+				"description": "Using the information received by previous request, obtain the “name”,\r\n“birthyear”, “homeWorld”, “eyeColor”, starshipName for the person with \r\nunique id = 4."
+			},
+			"response": []
+		}
+	]
+}
